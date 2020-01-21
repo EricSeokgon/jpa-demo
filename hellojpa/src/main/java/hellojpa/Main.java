@@ -40,10 +40,10 @@ public class Main {
 
             //조회
             Member findMember = em.find(Member.class, member.getId());
-            Long TeamId = findMember.getId();
 
             //참조를 사용해서 연관관계 조회
-            Team findTeam = findMember.getTeam();
+            Team findTeam = em.find(Team.class, team.getId());
+            int memberSize = findTeam.getMembers().size(); //역방향 조회
 
             //검색
             /*String jpql = "select m  from Member m where m.name. like '%hello%' ";
