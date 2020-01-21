@@ -24,7 +24,10 @@ public class Main {
             //회원 저장
             Member member = new Member();
             member.setName("member1");
-            member.setTeam(team); //단방향 연관관계 설정, 참조 저장
+            //member.setTeam(team); //단방향 연관관계 설정, 참조 저장
+            //역방향 (주인이 아닌 방향)만 연관관계 설정
+            team.getMembers().add(member);
+
             em.persist(member);
 
             // 새로운 팀B
@@ -34,7 +37,7 @@ public class Main {
             // 회원1에 새로운 팀B 설정
             member.setTeam(teamB);
 
-            //
+            //초기화
             em.flush();
             em.clear();
 
