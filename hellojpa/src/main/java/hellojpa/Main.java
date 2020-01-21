@@ -21,8 +21,8 @@ public class Main {
             em.persist(team);
             Member member = new Member();
             member.setName("member1");
-            //역방향(주인이 아닌 방향)만 연관관계 설정
-            team.getMembers().add(member);
+            //연관관계의 주인에 값 설정
+            member.setTeam(team); //**
             em.persist(member);
 
             //초기화
