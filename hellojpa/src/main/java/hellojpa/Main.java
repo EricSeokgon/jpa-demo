@@ -27,13 +27,7 @@ public class Main {
             member.setTeam(team); //단방향 연관관계 설정, 참조 저장
             em.persist(member);
 
-            //등록
-            //Member member = new Member();
-            //member.setId(1L);
-            //member.setName("hello");
-            //member.setMemberType(MemberType.USER);
-            //member.setTeamId(member);
-            em.persist(member);
+
 
 
             //검색
@@ -44,9 +38,6 @@ public class Main {
             //조회
             Member findMember = em.find(Member.class, member.getId());
             Long TeamId = findMember.getId();
-
-            //연관관계가 없음
-            //Team findTeam = em.find(Team.class, team.getId());
 
             //참조를 사용해서 연관관계 조회
             Team findTeam = findMember.getTeam();
